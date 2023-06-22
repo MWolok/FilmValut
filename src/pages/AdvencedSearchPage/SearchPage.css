@@ -1,0 +1,49 @@
+.adv-conteiner {
+	/* width: 300px;
+    height: 300px; */
+	padding-right: 20px;
+	border-radius: 15px;
+	border: 2px solid gray;
+	margin-left: 10px;
+	padding-top: 10px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.underline {
+	width: 100%;
+	border-bottom: 2px solid orangered;
+}
+.now {
+    position: relative;
+	background-image: url("https://cdn.pixabay.com/photo/2014/10/26/09/32/filmstrip-503587_1280.jpg");
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+}
+.title{
+    position: absolute;
+    top: 0;
+    display: flex;
+    color: orangered;
+}
+.filter{
+    position: absolute;
+    right: 0px;
+    top: 5px;
+   
+
+}
+.top {
+	background-color: white;
+}
+.boom {
+	min-width: 250px;
+}
+.card-high {
+	overflow: hidden;
+	margin-bottom: 15px;
+	padding-left: 35px;
+	padding-right: 35px;
+	margin-top: 50px;
+}

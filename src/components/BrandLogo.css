@@ -4,8 +4,13 @@
     flex-direction: row;
    
 }
-.icon svg{
-position: relative;
-text-align: center;
+.icon i{
+color: #ef5000;
+    font-size: 25px;
+}
 
+
+.brand-letter{
+    color: #ef5000;
+    font-size: 45px; 
 }

@@ -9,3 +9,10 @@
 	
 	width: 100%;
 }
+.nav-button{
+	
+	margin: 5px 10px 0px;
+	width: 100px;
+	border-radius: 15px;
+	border: 2px solid black;
+}
