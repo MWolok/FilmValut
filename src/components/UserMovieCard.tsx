@@ -1,17 +1,18 @@
-import { ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import { MovieModel } from "../model/MovieModel.";
 import { TvSeries } from "../model/TvSeriesModel";
 
 interface Props {
 	movie: MovieModel;
 	movieDelate: (id: number) => void;
+	show: ()=>void;
 }
 
-const UserMovieCard = ({ movie, movieDelate }: Props) => {
+const UserMovieCard = ({ movie, movieDelate,show }: Props) => {
 	return (
 		<>
 			<div className="card">
-				{/* <!-- Card image --> */}
+				
 				<div className="view overlay">
 					<img
 						className="card-img-top"
@@ -23,11 +24,11 @@ const UserMovieCard = ({ movie, movieDelate }: Props) => {
 					</a>
 				</div>
 
-				{/* <!-- Card content --> */}
+			
 				<div className="card-body">
-					{/* <!-- Title --> */}
+				
 					<h4 className="card-title">{movie.title}</h4>
-					{/* <!-- Text --> */}
+					
 					<p className="card-text">{movie.credits}</p>
 					<ListGroup className="list-group-flush">
 						<ListGroup.Item>ReleaseData : {movie.releaseDate}</ListGroup.Item>
@@ -48,8 +49,8 @@ const UserMovieCard = ({ movie, movieDelate }: Props) => {
 						))}
 						</ListGroup.Item>
 					</ListGroup>
-					{/* <!-- Button --> */}
 				
+				<Button onClick={show}>Quiz</Button>
 				</div>
 			</div>
 		</>

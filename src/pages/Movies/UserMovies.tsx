@@ -5,8 +5,11 @@ import { MovieModel } from "../../model/MovieModel.";
 import { TestMovie } from "../../api/PopularMovies";
 import Pagination from "../../components/Pagination";
 import { GetUserProfil } from "../../api/GetUserProfil";
+import QuestionModal from "../../components/QuestionModal";
 
 const UserMovies = () => {
+	const [showModal, setShowModal] = useState(true);
+
 	const [movies, setMovies] = useState<MovieModel[]>([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [moviesPerPage, setMoviesPerPage] = useState(8);
@@ -20,34 +23,41 @@ const UserMovies = () => {
 		getMovies();
 	}, [getMovies]);
 
-	//Api call to for movies
+	//To do delate movie
 	const delateMovieFromMovies = (id: number) => {
 		console.log(id);
 	};
 
 	const indexOFLastMovie = currentPage * moviesPerPage;
 	const indexOfFirstMovie = indexOFLastMovie - moviesPerPage;
-	const currentMovies = 
-	
-	movies?.slice(indexOfFirstMovie, indexOFLastMovie);
+	const currentMovies = movies?.slice(indexOfFirstMovie, indexOFLastMovie);
 
 	const changePage = (pageNumber: number) => {
 		setCurrentPage(pageNumber);
 	};
 
+	const closeModalQuiz = () => {
+		setShowModal(false);
+	};
+
 	return (
 		<>
+			<QuestionModal
+				// closeModal={closeModalQuiz}
+				show={showModal}
+				onHide={() => setShowModal(false)}
+			/>
 			<div className="conteiner-fluid min-vh-100">
 				<div className="underline"></div>
 				<div className="row row-cols-1 row-cols-md-4 g-4">
-					{(movies.length === 0) && (
+					{movies.length === 0 && (
 						<p className="text-algin-center">No movies Found</p>
 					)}
 
 					{movies.length > 0 &&
 						currentMovies.map((movie) => (
 							<div key={movie.title} className="col">
-								<UserMovieCard
+								<UserMovieCard show = {() =>setShowModal(true)}
 									movieDelate={delateMovieFromMovies}
 									movie={movie}></UserMovieCard>
 							</div>

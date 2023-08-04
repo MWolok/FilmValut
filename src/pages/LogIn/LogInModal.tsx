@@ -9,8 +9,7 @@ import { isAxiosError } from "axios";
 import { UserContext } from "../../context/UserContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const LogInModal = (props: any, onHide:()=>void) => {
-	
+const LogInModal = (props: any, onHide: () => void) => {
 	const navigate = useNavigate();
 	const userContex = useContext(UserContext);
 	const {
@@ -35,8 +34,7 @@ const LogInModal = (props: any, onHide:()=>void) => {
 				autoClose: 2000,
 				theme: "light",
 			});
-			props.closeModal()
-		
+			props.closeModal();
 		} catch (error) {
 			if (isAxiosError(error)) {
 				toast.error(error.message, {
@@ -84,7 +82,7 @@ const LogInModal = (props: any, onHide:()=>void) => {
 							type="password"
 						/>
 						<p>{errors.password?.message}</p>
-						<Button  type="submit">Enter</Button>
+						<Button type="submit">Enter</Button>
 					</form>
 				</Modal.Body>
 			</Modal>

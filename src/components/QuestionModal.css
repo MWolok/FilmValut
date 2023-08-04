@@ -1,0 +1,7 @@
+.nums{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 85%;
+    top: 10px;
+}

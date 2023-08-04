@@ -5,4 +5,5 @@ export type Question = {
     answerA:string;
     answerB:string;
     answerC:string;
+    correctAnswer: string;
 }
