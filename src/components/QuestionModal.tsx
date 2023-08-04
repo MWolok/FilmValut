@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { Question } from "../model/QuizQuestionModel";
+import "./QuestionModal.css";
 
 const questions: Question[] = [
 	{
@@ -10,6 +11,7 @@ const questions: Question[] = [
 		answerA: "Christian Bale",
 		answerB: "Michael Keaton",
 		answerC: "Ben Affleck",
+		correctAnswer: "Ben Affleck",
 	},
 	{
 		id: 2,
@@ -19,6 +21,7 @@ const questions: Question[] = [
 		answerA: "Harvey Dent",
 		answerB: "Oswald Cobblepot",
 		answerC: "The Riddler",
+		correctAnswer: "Harvey Dent",
 	},
 	{
 		id: 3,
@@ -28,30 +31,45 @@ const questions: Question[] = [
 		answerA: "Heath Ledger",
 		answerB: "Jack Nicholson",
 		answerC: "Joaquin Phoenix",
+		correctAnswer: "Heath Ledger",
 	},
 ];
 
 const QuestionModal = (props: any) => {
-	const [num,setNum] = useState(0);
-	const [curentQuestion, setCurentQuestion] = useState<Question>(questions[num]);
+	const [num, setNum] = useState(0);
+	const [curentQuestion, setCurentQuestion] = useState<Question>(
+		questions[num]
+	);
 	const [selectedAnswer, setSelectedAnswer] = useState("");
+	const [quizScore, setQuizScore] = useState(0);
 
-	const handleCheckboxChange = (answer:string) => {
+	const handleCheckboxChange = (answer: string) => {
 		setSelectedAnswer(answer);
 	};
 
-const nextQuestion = ()=>{
-	setNum((prevNum) => prevNum+1);
-	
-}
-useEffect(()=>{
-	setCurentQuestion(questions[num])
-},[num])
+	const nextQuestion = () => {
+		if (curentQuestion.correctAnswer == selectedAnswer) {
+			setQuizScore((prevQuizScore) => prevQuizScore + 1);
+		}
+		console.log(quizScore);
+
+		if (num + 1 < questions.length) {
+			setNum((prevNum) => prevNum + 1);
+		}
+	};
+	useEffect(() => {
+		setCurentQuestion(questions[num]);
+	}, [num]);
 
 	return (
 		<>
 			<Modal {...props} aria-labelledby="contained-modal-title-vcenter">
 				<Modal.Header closeButton>
+					<div className="nums">
+						{num + 1}
+						<p>/</p>
+						{questions.length}
+					</div>
 					<Modal.Title id="contained-modal-title-vcenter">
 						{curentQuestion.movie}
 					</Modal.Title>
@@ -74,7 +92,7 @@ useEffect(()=>{
 								{questions[num].answerA}
 							</Col>
 							<Col xs={4} md={4}>
-							<input
+								<input
 									type="checkbox"
 									onChange={() => handleCheckboxChange(questions[num].answerB)}
 									checked={selectedAnswer === questions[num].answerB}
@@ -82,7 +100,7 @@ useEffect(()=>{
 								{questions[num].answerB}
 							</Col>
 							<Col xs={4} md={4}>
-							<input
+								<input
 									type="checkbox"
 									onChange={() => handleCheckboxChange(questions[num].answerC)}
 									checked={selectedAnswer === questions[num].answerC}
@@ -93,8 +111,14 @@ useEffect(()=>{
 					</Container>
 				</Modal.Body>
 				<Modal.Footer>
-					<Button onClick={nextQuestion}>Next</Button>
-					<Button onClick={props.onHide}>Close</Button>
+					{num + 1 < questions.length ? (
+						<Button onClick={nextQuestion}>Next</Button>
+					) : (
+						<>
+							<p>Quiz Score: {quizScore}</p>
+							<Button onClick={props.onHide}>Close</Button>
+						</>
+					)}
 				</Modal.Footer>
 			</Modal>
 		</>
