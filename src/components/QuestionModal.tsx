@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { Question } from "../model/QuizQuestionModel";
 import "./QuestionModal.css";
+import QuizModal from "./QuizScoreModal";
 
 const questions: Question[] = [
 	{
@@ -59,8 +60,16 @@ const QuestionModal = (props: any) => {
 	};
 	useEffect(() => {
 		setCurentQuestion(questions[num]);
-	}, [num]);
+		if (curentQuestion.correctAnswer == selectedAnswer) {
+			setQuizScore((prevQuizScore) => prevQuizScore + 1);
+		}
+	}, [num, quizScore]);
 
+	const handleDoubleFunction = (num: number) => {
+		console.log("Modal");
+		props.getScoreOpenModal(num);
+		props.onHide();
+	};
 	return (
 		<>
 			<Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -116,7 +125,9 @@ const QuestionModal = (props: any) => {
 					) : (
 						<>
 							<p>Quiz Score: {quizScore}</p>
-							<Button onClick={props.onHide}>Close</Button>
+							<Button onClick={() => handleDoubleFunction(quizScore)}>
+								Resoult
+							</Button>
 						</>
 					)}
 				</Modal.Footer>
