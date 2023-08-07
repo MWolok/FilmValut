@@ -37,7 +37,6 @@ const questions: Question[] = [
 ];
 
 const QuestionModal = (props: any) => {
-	const [scoreModalShow, setScoreModalShow] = useState<boolean>(false);
 	const [num, setNum] = useState(0);
 	const [curentQuestion, setCurentQuestion] = useState<Question>(
 		questions[num]
@@ -58,15 +57,19 @@ const QuestionModal = (props: any) => {
 		if (num + 1 < questions.length) {
 			setNum((prevNum) => prevNum + 1);
 		}
-	
 	};
 	useEffect(() => {
 		setCurentQuestion(questions[num]);
-		if(questions.length ===num){
-			setScoreModalShow(true);
+		if (curentQuestion.correctAnswer == selectedAnswer) {
+			setQuizScore((prevQuizScore) => prevQuizScore + 1);
 		}
-	}, [num]);
+	}, [num, quizScore]);
 
+	const handleDoubleFunction = (num: number) => {
+		console.log("Modal");
+		props.getScoreOpenModal(num);
+		props.onHide();
+	};
 	return (
 		<>
 			<Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -111,7 +114,6 @@ const QuestionModal = (props: any) => {
 									onChange={() => handleCheckboxChange(questions[num].answerC)}
 									checked={selectedAnswer === questions[num].answerC}
 								/>
-								<QuizModal score={quizScore} show={scoreModalShow} onHide={()=> {}}></QuizModal>
 								{questions[num].answerC}
 							</Col>
 						</Row>
@@ -123,7 +125,9 @@ const QuestionModal = (props: any) => {
 					) : (
 						<>
 							<p>Quiz Score: {quizScore}</p>
-							<Button onClick={props.onHide}>Close</Button>
+							<Button onClick={() => handleDoubleFunction(quizScore)}>
+								Resoult
+							</Button>
 						</>
 					)}
 				</Modal.Footer>

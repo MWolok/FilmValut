@@ -5,6 +5,7 @@ interface QuizModalProps {
 	score: number | null;
 	onHide: () => void;
 	show: boolean;
+	
 }
 
 const QuizModal: React.FC<QuizModalProps> = ({ score, onHide, show }) => {
