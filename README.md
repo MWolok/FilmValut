@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# FilmVault - FrontEnd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FilmVault is a Java and React application that provides users with access to actual and up-to-date streaming services for requested movies and TV series. FilmVault allows users to register, select desired VOD platforms, and add already-seen movies and series to their accounts. The application utilizes an external movie database API to fetch crucial movie details.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- React with TypeScript
+- HTML
+- CSS
+- Bootstrap (mention the version of Bootstrap you're using)
+- Java (for the back-end)
 
-### `npm start`
+## Running the Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this application on your computer, follow these steps:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repository to your computer using the following command:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/yourusername/filmvault-frontend.git
+   -npm install
+   -npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Using the Application
+-Open the application in your web browser.
+-Register for an account or log in if you already have one.
+-Select your desired VOD platforms.
+-Search for movies and TV series.
+-Add movies and series you've already seen to your account.
+-Access up-to-date streaming options for requested movies and series.
+-FilmVault - FrontEnd is designed to enhance your streaming experience!
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![2023-06-24_09h03_24](https://github.com/MWolok/FilmValut/assets/86103240/ec5ec4bb-19c1-489f-bfd2-07b851522a13)
+![2023-09-11_16h26_47](https://github.com/MWolok/FilmValut/assets/86103240/4de65ddf-8288-4fa9-8cb0-88f873e5cbd0)
+![2023-09-11_16h22_09](https://github.com/MWolok/FilmValut/assets/86103240/7963f46e-ca82-4af0-bc94-912729ef32ce)
