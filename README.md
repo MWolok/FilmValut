@@ -30,6 +30,6 @@ To run this application on your computer, follow these steps:
 -Access up-to-date streaming options for requested movies and series.
 -FilmVault - FrontEnd is designed to enhance your streaming experience!
 
-![2023-06-24_09h03_24](https://github.com/MWolok/FilmValut/assets/86103240/ec5ec4bb-19c1-489f-bfd2-07b851522a13)
+
 ![2023-09-11_16h26_47](https://github.com/MWolok/FilmValut/assets/86103240/4de65ddf-8288-4fa9-8cb0-88f873e5cbd0)
 ![2023-09-11_16h22_09](https://github.com/MWolok/FilmValut/assets/86103240/7963f46e-ca82-4af0-bc94-912729ef32ce)
